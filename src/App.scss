@@ -1,0 +1,64 @@
+$player_width: 30vw;
+$player_height: 20vh;
+$player_hand_width: 50vw;
+$player_hand_height: ($player_hand_width/5)*1.5;
+
+
+.Player{
+  position: fixed;
+  font-size: $player_height/10;
+  //border-radius: ($player_width/2);
+  width: $player_width;
+  height: $player_height;
+  background-color: red;
+  line-height: $player_height/5;
+}
+
+.App{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+
+#p1{
+  left: (100vw - $player_width)/2;
+  top: 0;
+}
+
+#p2{
+  left: 0vw;
+  top: (100vh - $player_height)/2;
+}
+
+#p3{
+  right: 0vw;
+  top: (100vh - $player_height)/2;
+}
+
+#p4{
+  left: (100vw - $player_width)/2;
+  bottom: $player_hand_height/2;
+ }
+
+.PlayerHand{
+  position: fixed;
+  bottom: -($player_hand_height)/2;
+  left: (100vw - $player_hand_width)/2;
+  width: $player_hand_width;
+  height: $player_hand_height;
+}
+
+.Card{
+  display: inline-block;
+  position: relative;
+  width: $player_hand_width/5;
+  height: $player_hand_height;
+  transition: transform 0.2s;
+}
+
+.Card:hover{
+  transform: translateY(-$player_hand_height/2) scale(1);
+  z-index: 100;
+
+}
+

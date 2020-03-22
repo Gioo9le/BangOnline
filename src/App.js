@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import PlayerHand from "./cards/PlayerHand";
+import Player from "./players/Player"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+    render() {
+        return (
+            <div className="App">
+                <Player id={"p1"}> 1 </Player>
+                <Player id={"p2"}> 2 </Player>
+                <Player id={"p3"}> 3 </Player>
+                <Player id={"p4"}> 4 </Player>
+                <PlayerHand/>
+            </div>
+        );
+    }
 }
 
 export default App;
