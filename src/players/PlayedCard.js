@@ -5,7 +5,7 @@ function importAll(r) {
     return r.keys().map(r);
 }
 
-class Card extends React.Component{
+class PlayedCard extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -14,7 +14,7 @@ class Card extends React.Component{
     }
 
     componentDidMount() {
-        fetch('http://192.168.1.217:1234/extractCard')
+        fetch('http://localhost:1234/extractCard')
             .then(res => res.json())
             .then(res => this.setState({cardId: res.cardId}))
             .catch(err => console.log(err))
@@ -22,13 +22,15 @@ class Card extends React.Component{
 
     render() {
         const images = importAll(require.context('./img/items/', false, /\.(png|jpe?g|svg)$/));
+        console.log(images);
+        console.log("La carta giocata e' la "+this.props.cardId);
         //console.log(images);
         return (
-            <div className={"Card"}>
-                <img src={images[this.props.cardId]} width="100%" height="100%" alt={''} onClick={() => {this.props.playCardFun(this.props.relativePos)}}/>
+            <div className={"PlayedCard"} style={{top: this.props.posY*5.5 + 'vh'}}>
+                <img src={images[this.props.cardId]} width="100%" height="100%" alt={''}/>
             </div>
         );
     }
 }
 
-export default Card;
+export default PlayedCard;

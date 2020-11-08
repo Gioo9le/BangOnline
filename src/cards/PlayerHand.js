@@ -1,16 +1,25 @@
 import React from 'react';
 import Card from './Card.js'
 import '../App.scss';
+import Player from "../players/Player";
 
 class PlayerHand extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+
+        }
+    }
     render() {
         return (
             <div className={"PlayerHand"}>
-                <Card cardId={0}/>
-                <Card cardId={10}/>
-                <Card cardId={20}/>
-                <Card cardId={30}/>
-                <Card cardId={15}/>
+                {this.props.myHandCards.map((item, idx) => {
+                    return <Card
+                        cardId={item}
+                        playCardFun={this.props.playCardFun}
+                        relativePos={idx}
+                    />
+                })}
             </div>
         );
     }
