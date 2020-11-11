@@ -2,62 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f8b30e6-8772-4ae2-8a69-6fef19e2c50a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cards/MyPlayerPlayedCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cards/MyPlayerPlayedCards.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/PlayedCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/PlayerBoard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/PlayerCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/PlayerPlayedCards.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/Stats.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_bartcassidy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_blackjack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_calamityjanet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_elgringo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_jessejones.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_jourdonnais.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_kitcarlson.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_luckyduke.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_paulregret.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_pedroramirez.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_rosedoolan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_sidketchum.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_slab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_suzylafayette.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_vulturesam.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/cowboys/01_willythekid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/icons/bullet.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/icons/icons8-centro-di-gravità-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/icons/playing-cards.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_bang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_barile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_birra.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_carabine.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_catbalou.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_diligenza.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_dinamite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_duello.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_emporio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_gatling.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_indiani.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_mancato.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_mirino.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_mustang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_panico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_prigione.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_remington.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_saloon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_schofield.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_volcanic.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_wellsfargo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/players/img/items/01_winchester.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_bartcassidy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_blackjack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_calamityjanet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_elgringo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_jessejones.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_jourdonnais.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_kitcarlson.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_luckyduke.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_paulregret.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_pedroramirez.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_rosedoolan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_sidketchum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_slab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_suzylafayette.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_vulturesam.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/cowboys/01_willythekid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_bang.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_barile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_birra.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_carabine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_catbalou.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_diligenza.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_dinamite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_duello.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_emporio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_gatling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_indiani.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_mancato.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_mirino.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_mustang.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_panico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_prigione.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_remington.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_saloon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_schofield.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_volcanic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_wellsfargo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/items/01_winchester.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/roles/01_fuorilegge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/roles/01_rinnegato.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/roles/01_sceriffo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cards/img/roles/01_vice.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/PlayerHand.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/PlayerHand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/MyPlayerPlayedCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/MyPlayerPlayedCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/MyPlayerPlayedCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/MyPlayerPlayedCards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/players/PlayedCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/players/PlayedCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/players/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/players/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/players/PlayerBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/players/PlayerBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/players/PlayerCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/players/PlayerCard.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -73,17 +70,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2403">
-              <caret line="207" column="16" selection-start-line="207" selection-start-column="16" selection-end-line="207" selection-end-column="16" />
+            <state relative-caret-position="485">
+              <caret line="232" column="14" selection-start-line="232" selection-start-column="14" selection-end-line="232" selection-end-column="14" />
+              <folding>
+                <element signature="e#669#92303#2" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
+        <entry file="file://$PROJECT_DIR$/src/cards/Discarded.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="150" column="25" lean-forward="true" selection-start-line="150" selection-start-column="25" selection-end-line="150" selection-end-column="25" />
+            <state relative-caret-position="301">
+              <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -92,19 +92,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
+        <entry file="file://$PROJECT_DIR$/src/cards/Deck.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cards/PlayerHand.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+            <state relative-caret-position="314">
+              <caret line="25" column="71" lean-forward="true" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -124,35 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/players/PlayerBoard.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/players/Player.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/players/PlayerCard.js">
+        <entry file="file://$PROJECT_DIR$/src/PlayBoard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+            <state relative-caret-position="204">
+              <caret line="42" column="23" lean-forward="true" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -163,8 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/players/PlayedCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+            <state relative-caret-position="410">
+              <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -173,10 +140,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cards/Card.js">
+        <entry file="file://$PROJECT_DIR$/src/cards/MyPlayerPlayedCards.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="27" column="128" selection-start-line="27" selection-start-column="128" selection-end-line="27" selection-end-column="128" />
+            <state relative-caret-position="294">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="16" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cards/MyPlayerPlayedCard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="32" column="118" selection-start-line="32" selection-start-column="118" selection-end-line="32" selection-end-column="118" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -200,7 +179,24 @@
       <find>socket</find>
       <find>MyPlayerPlayedCards</find>
       <find>cardPlayed</find>
+      <find>console.log</find>
+      <find>192</find>
+      <find>socket.</find>
+      <find>allPlayers</find>
+      <find>myHandCards</find>
+      <find>allHandCards</find>
+      <find>b1</find>
+      <find>allStats</find>
+      <find>cowboycho</find>
+      <find>Discar</find>
+      <find>begin</find>
+      <find>PlayerCar</find>
+      <find>drawDiscarded</find>
+      <find>localhost</find>
     </findStrings>
+    <replaceStrings>
+      <replace>192.168.43.137</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -210,25 +206,29 @@
       <list>
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/cards/PlayerHand.js" />
-        <option value="$PROJECT_DIR$/src/players/PlayerBoard.js" />
-        <option value="$PROJECT_DIR$/src/players/Player.js" />
         <option value="$PROJECT_DIR$/src/players/PlayerPlayedCards.js" />
         <option value="$PROJECT_DIR$/src/cards/Card.js" />
         <option value="$PROJECT_DIR$/src/players/Stats.js" />
-        <option value="$PROJECT_DIR$/src/App.scss" />
+        <option value="$PROJECT_DIR$/src/players/PlayedCard.js" />
+        <option value="$PROJECT_DIR$/src/LoginFrame.js" />
+        <option value="$PROJECT_DIR$/src/loginForm.js" />
+        <option value="$PROJECT_DIR$/src/players/MyStats.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/players/PlayerBoard.js" />
+        <option value="$PROJECT_DIR$/src/players/PlayerCard.js" />
+        <option value="$PROJECT_DIR$/src/players/Player.js" />
+        <option value="$PROJECT_DIR$/src/cards/Deck.js" />
+        <option value="$PROJECT_DIR$/src/cards/Discarded.js" />
         <option value="$PROJECT_DIR$/src/cards/MyPlayerPlayedCards.js" />
         <option value="$PROJECT_DIR$/src/cards/MyPlayerPlayedCard.js" />
-        <option value="$PROJECT_DIR$/src/players/PlayedCard.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/players/PlayerCard.js" />
+        <option value="$PROJECT_DIR$/src/App.scss" />
+        <option value="$PROJECT_DIR$/src/PlayBoard.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="-129" />
-    <option name="y" value="-1080" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -248,6 +248,11 @@
             <path>
               <item name="bang" type="b2602c69:ProjectViewProjectNode" />
               <item name="bang" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bang" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -260,7 +265,29 @@
               <item name="bang" type="b2602c69:ProjectViewProjectNode" />
               <item name="bang" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bang" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="roles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bang" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="players" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bang" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="players" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -342,6 +369,8 @@
       <workItem from="1604743895319" duration="6337000" />
       <workItem from="1604791230054" duration="1836000" />
       <workItem from="1604830695236" duration="8848000" />
+      <workItem from="1604869072114" duration="1038000" />
+      <workItem from="1604912846331" duration="49283000" />
     </task>
     <task id="LOCAL-00001" summary="Aggiunta bozza di schermata di gioco">
       <created>1584908665244</created>
@@ -350,11 +379,18 @@
       <option name="project" value="LOCAL" />
       <updated>1584908665244</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Aggiunta bozza di schermata di gioco">
+      <created>1604869140126</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604869140126</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77063000" />
+    <option name="totallyTimeSpent" value="127384000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -366,22 +402,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-129" y="-1080" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.16271722" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.16214587" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49717513" weight="0.32880846" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50605583" side_tool="true" visible="true" weight="0.22937626" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32982087" />
+      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49487644" weight="0.32780084" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5087402" side_tool="true" visible="true" weight="0.22925311" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.4997367" weight="0.32897383" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="TypeScript" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.49921012" weight="0.34004024" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49394417" weight="0.22937626" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.4997367" weight="0.39936775" />
+      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.49849308" weight="0.3392116" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49125978" visible="true" weight="0.22925311" />
+      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.49909583" weight="0.39834026" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32982087" />
@@ -494,40 +530,115 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LoginFrame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/players/Stats.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="438">
+          <caret line="30" column="37" selection-end-line="38" selection-end-column="21" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cards/MyPlayerPlayedCards.js">
+    <entry file="file://$PROJECT_DIR$/src/loginForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+        <state relative-caret-position="179">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cards/MyPlayerPlayedCard.js">
+    <entry file="file://$PROJECT_DIR$/src/players/MyStats.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="24" column="95" lean-forward="true" selection-start-line="24" selection-start-column="95" selection-end-line="24" selection-end-column="95" />
+        <state relative-caret-position="326">
+          <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/logo512.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cards/img/cowboys/01_bartcassidy.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cards/img/roles/01_rinnegato.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/players/img/icons/icons8-centro-di-gravità-64.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cards/img/cards_1_back.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cards/PlayerHand.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        <state relative-caret-position="315">
+          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="21" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/players/PlayerBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/players/Player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="74" selection-start-line="11" selection-start-column="74" selection-end-line="11" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/players/PlayerCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="25" column="89" selection-start-line="25" selection-start-column="89" selection-end-line="25" selection-end-column="89" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cards/img/roles/01_fuorilegge.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -536,18 +647,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cards/Card.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="27" column="128" selection-start-line="27" selection-start-column="128" selection-end-line="27" selection-end-column="128" />
+        <state relative-caret-position="473">
+          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="88" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/players/PlayedCard.js">
+    <entry file="file://$PROJECT_DIR$/src/cards/Deck.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+        <state relative-caret-position="314">
+          <caret line="25" column="71" lean-forward="true" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cards/img/symbol-of-spades.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cards/img/spade.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cards/Discarded.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -564,54 +691,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/src/players/PlayedCard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        <state relative-caret-position="410">
+          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cards/MyPlayerPlayedCards.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="16" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cards/MyPlayerPlayedCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="32" column="118" selection-start-line="32" selection-start-column="118" selection-end-line="32" selection-end-column="118" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2403">
-          <caret line="207" column="16" selection-start-line="207" selection-start-column="16" selection-end-line="207" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="150" column="25" lean-forward="true" selection-start-line="150" selection-start-column="25" selection-end-line="150" selection-end-column="25" />
+        <state relative-caret-position="485">
+          <caret line="232" column="14" selection-start-line="232" selection-start-column="14" selection-end-line="232" selection-end-column="14" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#669#92303#2" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/players/PlayerBoard.js">
+    <entry file="file://$PROJECT_DIR$/src/PlayBoard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/players/Player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/players/PlayerCard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+        <state relative-caret-position="204">
+          <caret line="42" column="23" lean-forward="true" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

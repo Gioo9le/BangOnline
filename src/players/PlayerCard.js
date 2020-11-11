@@ -13,7 +13,7 @@ class PlayerCard extends React.Component{
         }
     }
     componentDidMount() {
-        fetch('http://192.168.1.217:1234/extractPlayer')
+        fetch('http://192.168.43.137:1234/extractPlayer')
             .then(res => res.json())
             .then(res => this.setState({playerId: res.playerId}))
             .catch(err => console.log(err))
@@ -23,8 +23,8 @@ class PlayerCard extends React.Component{
         const images = importAll(require.context('./img/cowboys/', false, /\.(png|jpe?g|svg)$/));
 
         return (
-            <div className={"PlayerCard"} id={this.props.id}>
-                <img src={images[this.state.playerId]} width="100%" height="100%" alt={''}/>
+            <div className={"PlayerCard"} id={this.props.id} onClick={this.props.clickFun}>
+                <img src={images[this.props.cowboyId]} width="100%" height="100%" alt={''}/>
             </div>
         );
     }

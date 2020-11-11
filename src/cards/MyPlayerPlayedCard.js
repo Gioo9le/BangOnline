@@ -11,6 +11,8 @@ class MyPlayerPlayedCard extends React.Component{
         this.state = {
             cardId: 50,
             isClicked: false,
+            isGiving:false,
+            cardBeingGiven:-1,
         }
     }
 
@@ -25,10 +27,18 @@ class MyPlayerPlayedCard extends React.Component{
         const images = importAll(require.context('./img/items/', false, /\.(png|jpe?g|svg)$/));
         //console.log(images);
         return (
-            <div className={"MyPlayerPlayedCard"}>
+            <div className={"MyPlayerPlayedCard"} onMouseOver={() => {this.setState({isClicked:true})}} onMouseOut={() => {this.setState({isClicked:false, isGiving:false})}}>
                 <button className={"b1"} onClick={()=>{this.props.discardFun(this.props.idx)}} hidden={!this.state.isClicked} > Discard </button>
-                <button className={"b2"} onClick={()=>{}} hidden={!this.state.isClicked} > Give to </button>
-                <img src={images[this.props.cardId]} width="100%" height="100%" alt={''} onClick={() => {let newState = this.state.isClicked; this.setState({isClicked:!newState})}}/>
+                <button className={"b2"} onMouseOver={()=>{this.setState({isGiving:true})}} hidden={!this.state.isClicked} > Give to </button>
+                <div className={'b4'} hidden={!this.state.isGiving} onMouseOver={()=>{this.setState({isGiving:true})}}>
+                {
+                    this.props.playerNames.map((item, idx) => {
+                        return <button className={"givingButton"} hidden={!this.state.isGiving}  onClick={()=>{this.props.giveFun(this.props.idx, idx)}}>{item}</button>
+                    })
+                }
+                </div>
+
+                <img src={images[this.props.cardId]} width="100%" height="100%" alt={''}/>
             </div>
         );
     }

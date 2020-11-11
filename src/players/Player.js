@@ -9,10 +9,10 @@ class Player extends React.Component{
     render() {
         return (
             <div className={"Player"}>
-                <PlayerCard/>
+                <PlayerCard cowboyId={this.props.cowboyId} clickFun={()=>{}}/>
                 <div className={"PlayerName"}>{this.props.name}</div>
-                <Stats bullets={1} distanceFP={this.props.distanceFP} nCards={3}/>
-                <PlayerPlayedCards playedCards={this.props.cardsPlayed}/>
+                <Stats bullets={this.props.allStats[0]} distanceFP={this.props.distanceFP} nCards={this.props.allStats[1]}/>
+                <PlayerPlayedCards playedCards={this.props.cardsPlayed==undefined?[]:this.props.cardsPlayed}/>
                 {/*<div>Carte in gioco sul tavolo</div>*/}
             </div>
         );

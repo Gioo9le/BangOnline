@@ -13,7 +13,7 @@ class MyPlayerPlayedCards extends React.Component{
         return (
             <div className={"MyPlayerPlayedCards"}>
                 {this.props.myPlayedCards.map((item, idx) => {
-                    return <MyPlayerPlayedCard cardId={item} idx={idx} discardFun={this.props.discardFun}/>
+                    return <MyPlayerPlayedCard cardId={item} idx={idx} discardFun={this.props.discardFun} giveFun={this.props.giveFun} playerNames={this.props.playerNames}/>
                 })}
             </div>
         );
