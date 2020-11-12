@@ -53,7 +53,7 @@ class PlayBoard extends React.Component{
         this.decrementBullets = this.decrementBullets.bind(this);
         this.extractCard = this.extractCard.bind(this);
         this.giveCard = this.giveCard.bind(this);
-        socket = socketIOClient('http://192.168.43.137:1234/');
+        socket = socketIOClient('http://localhost:1234/');
         socket.emit("checkIsPlaying", this.props.room);
 
     }
@@ -318,7 +318,7 @@ class PlayBoard extends React.Component{
             console.log("Scelte");
             console.log(this.state.cowboysID);
             return(
-                <div>
+                <div className={'PlayBoard'}>
                     {this.state.playerNames.map((item, idx) => {
                         return <div> {idx}.{item} - {this.state.cowboysID[idx]==-1?"Not choosen":this.state.cowboysID[idx]}</div>
                     })}

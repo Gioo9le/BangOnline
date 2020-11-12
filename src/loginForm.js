@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import Logo from './cards/img/logo.png'
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -22,17 +23,25 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={()=>{this.props.loginFun(this.state.playerName, this.state.room)}}>
-                <label>
-                    Nome:
-                    <input type="text" value={this.state.playerName} onChange={this.handleChangeName} />
-                </label>
-                <label>
-                    Stanza:
-                    <input type="text" value={this.state.room} onChange={this.handleChangeRoom} />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
+            <div className={'PlayBoard'}>
+                <div className={'Logo'}>
+                    <img src={Logo} />
+                </div>
+                <form className={'LoginForm'} onSubmit={()=>{this.props.loginFun(this.state.playerName, this.state.room)}}>
+                    <label>
+                        Nome:
+                        <input size={'10vh'} type="text" value={this.state.playerName} onChange={this.handleChangeName} />
+                    </label>
+                    <br/>
+                    <label>
+                        Stanza:
+                        <input type="text" value={this.state.room} onChange={this.handleChangeRoom} />
+                    </label>
+                    <span> </span>
+                    <br/>
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
         );
     }
 }
