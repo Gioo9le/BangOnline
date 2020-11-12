@@ -23,24 +23,64 @@ class PlayBoard extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            playerNames: [""],
-            cowboysID:[],
-            myHandCards: [],
-            allPlayedCards: [[]],
-            allStats: [[1,1]],
-            lastCardPlayed: [null],
-            discarded:[],
+            roomCondition:{
+                playersData:[],
+                numPlayer : 0,
+                currentTurn : 0,
+                deck : [
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //25 Bang
+            1, 1,
+            2, 2, 2, 2, 2, 2,
+            3,
+            4, 4, 4, 4,
+            5, 5,
+            6,
+            7, 7, 7,
+            8, 8,
+            9,
+            10, 10,
+            11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,
+            12,
+            13, 13,
+            14, 14, 14, 14,
+            15, 15, 15,
+            16,
+            17,
+            18, 18, 18,
+            19, 19,
+            20,
+            21,
+        ],
+                cowboysDeck : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+        ],
+                discarded : [],
+                isPlaying : false,
+                semeEstratto : -1,
+                numeroEstratto : -1,
+            },
             selectedDiscarded:0,
-            nPlayers: 0,
             myAbsolutePosition: 0,
             isMyTurn:false,
             lastMessage:"",
             isWaitingRoom:true,
             chooseCowboy:false,
             cowboyOptions:[],
-            ultimoSemeEstratto:-1,
-            ultimoNumeroEstratto:-1,
-            myRole: -1,
         };
         this.playACard = this.playACard.bind(this);
         this.drawCard = this.drawCard.bind(this);
@@ -61,147 +101,61 @@ class PlayBoard extends React.Component{
     componentDidMount() {
         //document.documentElement.webkitRequestFullScreen();
 
+        socket.on('dataChanged', (newRoomCondition, message)=>{
+            newRoomCondition.playersData = this.shiftRelativePosition(newRoomCondition.playersData, this.state.myAbsolutePosition);
+            this.setState({
+                roomCondition:newRoomCondition,
+                lastMessage:message
+            })
+        });
+
         socket.emit('playerEntered', this.props.playerName, this.props.room);
-        socket.on('playerIsEntered', (numPlayers, allPlayedCards, discarded, stats, cowboyChoosen)=>{
-            console.log("CowboyChosen"+cowboyChoosen);
-            console.log("Ciao"+allPlayedCards);
-            this.setState({
-                allPlayedCards: this.shiftRelativePosition(allPlayedCards, this.state.myAbsolutePosition),
-                allStats:this.shiftRelativePosition(stats, this.state.myAbsolutePosition),
-                nPlayers: numPlayers,
-                lastMessage:'Players in game: '+numPlayers,
-                discarded: discarded,
-                cowboysID: this.shiftRelativePosition(cowboyChoosen, this.state.myAbsolutePosition),
-            });
-            console.log('Players in game: '+numPlayers);
-        });
-        socket.on('exceptForLauncher', (msg, allNames)=>{
-            console.log(msg + 'Entered now there are '+allNames);
-            let playerNamesNew = this.shiftRelativePosition(allNames, this.state.myAbsolutePosition);
-            this.setState({
-                playerNames:playerNamesNew,
-            });
-        });
-        socket.on('forLauncher',(assignedId, playerNames)=>{
+        socket.on('forLauncher',(assignedId)=>{
             console.log('I\'ve entered');
-            let playerNamesNew = this.shiftRelativePosition(playerNames, assignedId);
             this.setState({
                 myAbsolutePosition: assignedId,
-                playerNames:playerNamesNew,
-                lastMessage:'I\'ve entered'
             });
             console.log(assignedId);
             //setTimeout(()=>{console.log('After 10 second')}, 10000);
         });
-
-        socket.on('cardPlayed', (userId, cardId, playedCards, handCards) => {
-            playedCards = this.shiftRelativePosition(playedCards, this.state.myAbsolutePosition);
-            console.log(playedCards);
+        socket.on('cardDiscarded', (newDiscarded) => {
             this.setState({
-                allPlayedCards: playedCards,
-                lastMessage:"User "+userId+" played the card "+cardId+"."
-            })
-            console.log("Tutte le carte giocate sono");
-            console.log(this.state.allPlayedCards);
-            console.log("User "+userId+" played the card "+cardId+".");
-
-        });
-        socket.on('nextTurn', (userTurn)=>{
-            console.log("Adesso e' il turno di: "+userTurn);
-            this.setState({
-                isMyTurn:(userTurn==this.state.myAbsolutePosition),
-                lastMessage:"Adesso e' il turno di: "+userTurn
-            })
-        });
-        socket.on('cardDrawn', (playerId, drawnCard)=>{
-
-            console.log("Il giocatore: "+playerId+" ha pescato");
-            if(playerId == this.state.myAbsolutePosition) {
-                console.log("Hai pescato una carta");
-                console.log(drawnCard);
-                let myNewCards = this.state.myHandCards;
-                myNewCards.push(drawnCard);
-                this.setState({
-                    myHandCards: myNewCards,
-                })
-                console.log(this.state.myHandCards);
-            }
-        });
-        socket.on('cardDiscarded', (userId, cardId, playedCards, newDiscarded) => {
-            playedCards = this.shiftRelativePosition(playedCards, this.state.myAbsolutePosition);
-            console.log(playedCards);
-            this.setState({
-                allPlayedCards: playedCards,
-                discarded: newDiscarded,
                 selectedDiscarded:newDiscarded.length-1,
             })
-            console.log(playedCards);
-            console.log("User "+userId+" discarded the card "+cardId+".");
         });
-        socket.on("drawDiscarded", (playerId, newDiscarded, discardedCardDrawed, newStats)=>{
+        socket.on("drawDiscarded", ()=>{
             let newDiscardedSelected = this.state.selectedDiscarded==0?0:this.state.selectedDiscarded-1;
             this.setState({
-                discarded:newDiscarded,
-                lastMessage:"User "+playerId+" drawed the card "+discardedCardDrawed+" from the discarded",
                 selectedDiscarded:newDiscardedSelected,
-                allStats:this.shiftRelativePosition(newStats, this.state.myAbsolutePosition),
             })
-        })
-        socket.on("playerLeft", (playerExitedId, playerNames, playedCards, nPlayer, discardedNew)=>{
+        });
+        socket.on("playerLeft", (playerExitedId)=>{
             if(this.state.myAbsolutePosition>=playerExitedId){
                 let newPos = this.state.myAbsolutePosition-1;
                 this.setState({myAbsolutePosition: newPos})
             }
-            let newPlayerNames = this.shiftRelativePosition(playerNames, this.state.myAbsolutePosition);
-            let newPlayedCards = this.shiftRelativePosition(playedCards, this.state.myAbsolutePosition);
-            this.setState({
-                playerNames: newPlayerNames,
-                allPlayedCards: newPlayedCards,
-                nPlayers: nPlayer,
-                discarded:discardedNew,
-            })
         });
-        socket.on("beginGame",(roles)=>{
-
+        socket.on("beginGame",()=>{
             this.setState({
                 isWaitingRoom:false,
-                myRole: roles[this.state.myAbsolutePosition],
-            })
-        })
-        socket.on("statsChanged", (newStats)=>{
-            this.setState({
-                allStats:this.shiftRelativePosition(newStats, this.state.myAbsolutePosition),
             })
         });
         socket.on("isPlaying", (isPlaying)=>{
             this.setState({
                 isWaitingRoom: !isPlaying,
             })
-        })
+        });
         socket.on('pickCowboyCard', (firstCard, secondCard)=>{
             console.log("Choosing")
             this.setState({
                 cowboyOptions:[firstCard, secondCard],
             })
         });
-        socket.on('cowboyChanged', (newCowboys)=>{
+        socket.on('cardExtracted', (newDiscarded)=>{
             this.setState({
-                cowboysID:this.shiftRelativePosition(newCowboys, this.state.myAbsolutePosition),
-            })
-        });
-        socket.on('cardExtracted', (newDiscarded, seme, numero)=>{
-            this.setState({
-                discarded:newDiscarded,
-                ultimoSemeEstratto:seme,
-                ultimoNumeroEstratto:numero,
                 selectedDiscarded:newDiscarded.length-1
             })
-        })
-        socket.on('playedChanged', (newPlayed)=>{
-            this.setState({
-                allPlayedCards:this.shiftRelativePosition(newPlayed, this.state.myAbsolutePosition),
-            })
-        })
+        });
 
 
     }
@@ -213,23 +167,7 @@ class PlayBoard extends React.Component{
     }
 
     playACard(cardIdx){
-        let playedCards = this.state.allPlayedCards;
-        let handCards = this.state.myHandCards;
-        let lastCardPlayed = this.state.lastCardPlayed;
-        let nHandCards = this.state.allStats;
-        nHandCards[0][1]--;
-        lastCardPlayed[0] = handCards.splice(cardIdx, 1)[0];
-        playedCards[0].push(lastCardPlayed[0]);
-        this.setState({
-            allPlayedCards: playedCards,
-            myHandCards: handCards,
-            lastCardPlayed: lastCardPlayed,
-            allStats: nHandCards,
-            lastMessage:"I played the card "+playedCards[0][playedCards[0].length-1]
-        });
-        console.log("I played the card "+playedCards[0][playedCards[0].length-1]);
-
-        socket.emit('cardPlayed', this.state.myAbsolutePosition, playedCards[0][playedCards[0].length-1], cardIdx, this.props.room)
+        socket.emit('cardPlayed', this.state.myAbsolutePosition, this.state.roomCondition.playersData[0].handCard[cardIdx], cardIdx, this.props.room)
     }
 
     nextTurn(){
@@ -246,19 +184,23 @@ class PlayBoard extends React.Component{
     }
 
     discardCard(positionCard){
-        console.log(positionCard);
-        let newPlayedCards = this.state.allPlayedCards;
-        console.log(newPlayedCards[0]);
-        let newDiscarded = this.state.discarded;
-        newDiscarded.push(newPlayedCards[0].splice(positionCard, 1));
-        console.log(newPlayedCards[0]);
-        this.setState({
-            allPlayedCards:newPlayedCards,
-            discarded:newDiscarded,
-            selectedDiscarded:newDiscarded.length-1,
-        });
-        console.log(this.state.allPlayedCards[0]);
         socket.emit('cardDiscarded', this.state.myAbsolutePosition, positionCard, this.props.room);
+    }
+
+    drawDiscarded(){
+        socket.emit("drawDiscarded", this.state.myAbsolutePosition, this.state.selectedDiscarded, this.props.room);
+    }
+
+    incrementBullets(){
+        socket.emit('lifeChanged', this.state.myAbsolutePosition, this.state.roomCondition.playersData[0].bullets+1, this.props.room);
+    }
+
+    decrementBullets(){
+        socket.emit('lifeChanged', this.state.myAbsolutePosition, this.state.roomCondition.playersData[0].bullets-1, this.props.room);
+    }
+
+    choosingCowboy(){
+        socket.emit('drawCowboys', this.state.myAbsolutePosition, this.props.room)
     }
 
     previousDiscarded(){
@@ -272,31 +214,6 @@ class PlayBoard extends React.Component{
         this.setState({
             selectedDiscarded:newSelectedDiscarded
         })
-    }
-    drawDiscarded(){
-        let myNewHandCards = this.state.myHandCards;
-        let newDiscarded = this.state.discarded;
-        myNewHandCards.push(newDiscarded.splice(this.state.selectedDiscarded,1));
-        socket.emit("drawDiscarded", this.state.myAbsolutePosition, this.state.selectedDiscarded, this.props.room);
-        let newSelectedDiscarded = this.state.selectedDiscarded==0?0:this.state.selectedDiscarded-1;
-        this.setState({
-            myHandCards:myNewHandCards,
-            discarded:newDiscarded,
-            selectedDiscarded:newSelectedDiscarded,
-        })
-
-    }
-
-    incrementBullets(){
-        socket.emit('lifeChanged', this.state.myAbsolutePosition, this.state.allStats[0][0]+1, this.props.room);
-    }
-
-    decrementBullets(){
-        socket.emit('lifeChanged', this.state.myAbsolutePosition, this.state.allStats[0][0]-1, this.props.room);
-    }
-
-    choosingCowboy(){
-        socket.emit('drawCowboys', this.state.myAbsolutePosition, this.props.room)
     }
     cowboyChoosen(cowboyId){
         this.setState({
@@ -319,8 +236,8 @@ class PlayBoard extends React.Component{
             console.log(this.state.cowboysID);
             return(
                 <div className={'PlayBoard'}>
-                    {this.state.playerNames.map((item, idx) => {
-                        return <div> {idx}.{item} - {this.state.cowboysID[idx]==-1?"Not choosen":this.state.cowboysID[idx]}</div>
+                    {this.state.roomCondition.playersData.map((value)=>{return value.Name}).map((item, idx) => {
+                        return <div> {idx}.{item} - {this.state.roomCondition.playersData.map((value)=>{return value.Cowboy})[idx]==-1?"Not choosen":this.state.roomCondition.playersData.map((value)=>{return value.Cowboy})[idx]}</div>
                     })}
                     <button hidden={this.state.chooseCowboy} onClick={()=>{this.choosingCowboy()}}>Draw Cowboys</button>
                     {this.state.cowboyOptions.map((item, idx) => {
@@ -328,7 +245,10 @@ class PlayBoard extends React.Component{
                             <PlayerCard cowboyId={item} clickFun={()=>{this.cowboyChoosen(item)}}/>
                         </div>);
                     })}
-                    <button hidden={this.state.myAbsolutePosition!=0||!this.state.chooseCowboy} onClick={()=>{socket.emit("beginGame", this.props.room)}}>Begin</button>
+                    <button
+                        disabled={!this.state.roomCondition.playersData.map((val)=>{return val.Cowboy}).every((value => value!=-1))}
+                        hidden={this.state.myAbsolutePosition!=0||!this.state.chooseCowboy}
+                        onClick={()=>{socket.emit("beginGame", this.props.room)}}>Begin</button>
 
                 </div>
 
@@ -337,43 +257,58 @@ class PlayBoard extends React.Component{
             return (
                 <div className="PlayBoard">
                     <PlayerBoard
-                        nPlayers={this.state.nPlayers}
-                        playerNames={this.state.playerNames.slice(1,7)}
-                        allPlayedCards={this.state.allPlayedCards.slice(1, 7)}
-                        allStats={this.state.allStats.slice(1,7)}
-                        lastCardPlayed={this.state.lastCardPlayed.slice(1, 7)}
-                        cowboysId={this.state.cowboysID.slice(1,7)}
+                        nPlayers={this.state.roomCondition.numPlayer}
+                        playerNames={this.state.roomCondition.playersData.map((value)=>{return value.Name}).slice(1,7)}
+                        allPlayedCards={this.state.roomCondition.playersData.map((value)=>{return value.playedCard}).slice(1, 7)}
+                        allStats={this.state.roomCondition.playersData.map((value)=>{return [value.bullets, value.nHandCard]}).slice(1,7)}
+                        cowboysId={this.state.roomCondition.playersData.map((value)=>{return value.Cowboy}).slice(1,7)}
                     />
                     <MyPlayerPlayedCards
-                        myPlayedCards={this.state.allPlayedCards[0]}
-                        lastCardPlayed={this.state.lastCardPlayed[0]}
+                        myPlayedCards={this.state.roomCondition.playersData.map((value)=>{return value.playedCard})[0]}
                         discardFun={this.discardCard}
                         giveFun={this.giveCard}
-                        playerNames={this.state.playerNames}
+                        playerNames={this.state.roomCondition.playersData.map((value)=>{return value.Name})}
                     />
                     <PlayerHand
-                        myHandCards={this.state.myHandCards}
+                        myHandCards={this.state.roomCondition.playersData.map((value)=>{return value.handCard})[0]}
                         playCardFun={this.playACard}
                         //playCardFun={this.state.isMyTurn ? this.playACard : ()=>{}}
                     />
                     <Discarded
-                        discardedList={this.state.discarded}
+                        discardedList={this.state.roomCondition.discarded}
                         selectedCard={this.state.selectedDiscarded}
                         nextDiscardedFun={this.nextDiscarded}
                         previousDiscardedFun={this.previousDiscarded}
                         drawFun={this.drawDiscarded}
-                        ultimoSeme={this.state.ultimoSemeEstratto}
-                        ultimoNumero={this.state.ultimoNumeroEstratto}
+                        ultimoSeme={this.state.roomCondition.semeEstratto}
+                        ultimoNumero={this.state.roomCondition.numeroEstratto}
                     />
-                    <MyStats myName={this.state.playerNames[0]} bullets={this.state.allStats[0][0]} incrementBullets={this.incrementBullets} decrementBullets={this.decrementBullets}/>
+                    <MyStats
+                        myName={this.state.roomCondition.playersData.map((value)=>{return value.Name})[0]}
+                        bullets={this.state.roomCondition.playersData.map((value)=>{return value.bullets})[0]}
+                        incrementBullets={this.incrementBullets}
+                        decrementBullets={this.decrementBullets}
+                    />
                     <div className={"Log"}>{this.state.lastMessage}</div>
-                    <Deck drawFun={this.drawCard} extractFun={this.extractCard}/>
+                    <Deck
+                        drawFun={this.drawCard}
+                        extractFun={this.extractCard}
+                    />
                     {/*<Deck drawFun={this.state.isMyTurn ? this.drawCard : ()=>{}} extractFun={this.extractCard}/>*/}
                     {/*<button className={"drawDoorCard"} onClick={this.state.isMyTurn ? this.drawCard : ()=>{}}> Pesca una carta Porta</button>*/}
-                    <button className={"nextTurn"} onClick={this.state.isMyTurn ? this.nextTurn : ()=>{}} disabled={!this.state.isMyTurn}> Finisci turno </button>
+                    <button
+                        className={"nextTurn"}
+                        onClick={this.state.isMyTurn ? this.nextTurn : ()=>{}}
+                        disabled={!this.state.isMyTurn}
+                    > Finisci turno </button>
                     <div className={'MyCowboy'}>
-                        <PlayerCard cowboyId={this.state.cowboysID[0]} clickFun={()=>{}}/>
-                        <img className={"Role"} src={rolesImg[this.state.myRole]}/>
+                        <PlayerCard
+                            cowboyId={this.state.roomCondition.playersData.map((value)=>{return value.Cowboy})[0]}
+                            clickFun={()=>{}}/>
+                        <img
+                            className={"Role"}
+                            src={rolesImg[this.state.roomCondition.playersData.map((value)=>{return value.role})[0]]}
+                        />
 
                     </div>
 

@@ -2,8 +2,8 @@ $player_width: 40vw;
 $player_height: 25vh;
 $player_hand_width: 70vw;
 $player_hand_height: ($player_hand_width/7)*1.5;
-$zoom_factor_hand: 1.5;
-$zoom_factor_player: 1.5;
+$zoom_factor_hand: 2;
+$zoom_factor_player: 2;
 $player_board_width: 100vw;
 $player_board_height: 70vh;
 $player_card_height: $player_height*0.9;
@@ -85,7 +85,7 @@ img{
 }
 
 .PlayerCard:hover{
-  transform: translateY(($player_height * 0.9 / 2)*($zoom_factor_player - 1)) scale($zoom_factor_player) ;
+  transform: translateY(((($player_board_width/6)*0.4*1.5)/ 2)*($zoom_factor_player - 1)) scale($zoom_factor_player) ;
   z-index: 100;
 }
 
@@ -145,7 +145,7 @@ img{
 }
 
 .PlayedCard:hover{
-  transform: translateY(($player_height * 0.9 / 2)*($zoom_factor_player - 1)) scale($zoom_factor_player) ;
+  transform: translateY(((($player_board_width/6)*0.5*1.5)*($zoom_factor_player - 1))/2) scale($zoom_factor_player) ;
   z-index: 100;
 }
 
@@ -313,7 +313,7 @@ img{
 }
 
 .Role:hover{
-  transform: translateY(($player_height * 0.9 / 2)*($zoom_factor_player - 1)) scale($zoom_factor_player) ;
+  transform: translateY(((($player_board_width/6)*0.4*1.5) * 0.9 / 2)*($zoom_factor_player - 1)) scale($zoom_factor_player) ;
   z-index: 100;
 }
 .Logo{
