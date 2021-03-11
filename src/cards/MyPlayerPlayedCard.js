@@ -21,6 +21,7 @@ class MyPlayerPlayedCard extends React.Component{
             .then(res => res.json())
             .then(res => this.setState({cardId: res.cardId}))
             .catch(err => console.log(err))
+
     }
 
     render() {

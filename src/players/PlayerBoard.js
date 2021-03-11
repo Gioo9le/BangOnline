@@ -24,10 +24,14 @@ class PlayerBoard extends React.Component{
                 {this.props.playerNames.map((item, idx) => {
                     return <Player
                         name={item}
+                        idx={idx}
                         distanceFP={this.calcDistance(idx)}
                         cardsPlayed={this.props.allPlayedCards[idx]}
                         allStats={this.props.allStats[idx]==undefined?[0,0]:this.props.allStats[idx]}
                         cowboyId={this.props.cowboysId[idx]==undefined?[0]:this.props.cowboysId[idx]}
+                        target={this.props.targets[idx]==undefined?false:this.props.targets[idx]}
+                        nonPermanent={this.props.nonPermanent[idx]==undefined?-1:this.props.nonPermanent[idx]}
+                        selectTargetFun={this.props.selectTargetFun}
                     />
                 })}
                 {/*<Player name={"Giorgio"}/>*/}
