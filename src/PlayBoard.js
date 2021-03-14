@@ -274,8 +274,8 @@ class PlayBoard extends React.Component{
         socket.emit('cardExtracted', this.props.room)
     }
 
-    discardCard(positionCard){
-        socket.emit('cardDiscarded', this.state.myAbsolutePosition, positionCard, this.props.room);
+    discardCard(positionCard, isHand){
+        socket.emit('cardDiscarded', this.state.myAbsolutePosition, positionCard, isHand, this.props.room);
     }
 
     drawDiscarded(){
@@ -314,8 +314,8 @@ class PlayBoard extends React.Component{
         socket.emit('cowBoyChoosen', this.state.myAbsolutePosition, cowboyId, this.props.room);
     }
 
-    giveCard(cardIdx, receiverId){
-        socket.emit("cardGiven", this.state.myAbsolutePosition, cardIdx, receiverId, this.props.room)
+    giveCard(cardIdx, receiverId, isHand){
+        socket.emit("cardGiven", this.state.myAbsolutePosition, cardIdx, receiverId, isHand, this.props.room)
     }
 
     chooseTarget(targetIdx){
@@ -376,6 +376,9 @@ class PlayBoard extends React.Component{
                     />
                     <PlayerHand
                         myHandCards={this.state.roomCondition.playersData.map((value)=>{return value.handCard})[0]}
+                        discardFun={this.discardCard}
+                        giveFun={this.giveCard}
+                        playerNames={this.state.roomCondition.playersData.map((value)=>{return value.Name})}
                         //playCardFun={this.playACard}
                         playCardFun={this.state.isMyTurn || this.state.roomCondition.playersData[0].isTarget ? this.playACard : ()=>{}}
                     />
