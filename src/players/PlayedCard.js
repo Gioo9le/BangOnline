@@ -26,7 +26,7 @@ class PlayedCard extends React.Component{
         console.log("La carta giocata e' la "+this.props.cardId);
         //console.log(images);
         return (
-            <div className={"PlayedCard"} style={{top: this.props.posY*5.5 + 'vh'}}>
+            <div className={"PlayedCard"} style={{top: this.props.posY*4.7 + 'vh'}}>
                 <img src={images[this.props.cardId]} width="100%" height="100%" alt={''}/>
             </div>
         );

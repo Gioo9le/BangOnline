@@ -21,24 +21,25 @@ class MyPlayerPlayedCard extends React.Component{
             .then(res => res.json())
             .then(res => this.setState({cardId: res.cardId}))
             .catch(err => console.log(err))
+
     }
 
     render() {
         const images = importAll(require.context('./img/items/', false, /\.(png|jpe?g|svg)$/));
         //console.log(images);
         return (
-            <div className={"MyPlayerPlayedCard"} onMouseOver={() => {this.setState({isClicked:true})}} onMouseOut={() => {this.setState({isClicked:false, isGiving:false})}}>
-                <button className={"b1"} onClick={()=>{this.props.discardFun(this.props.idx)}} hidden={!this.state.isClicked} > Discard </button>
+            <div className={this.props.cardType} onMouseOver={() => {this.setState({isClicked:true})}} onMouseOut={() => {this.setState({isClicked:false, isGiving:false})}}>
+                <button className={"b1"} onClick={()=>{this.props.discardFun(this.props.idx, this.props.isHand)}} hidden={!this.state.isClicked} > Discard </button>
                 <button className={"b2"} onMouseOver={()=>{this.setState({isGiving:true})}} hidden={!this.state.isClicked} > Give to </button>
                 <div className={'b4'} hidden={!this.state.isGiving} onMouseOver={()=>{this.setState({isGiving:true})}}>
                 {
                     this.props.playerNames.map((item, idx) => {
-                        return <button className={"givingButton"} hidden={!this.state.isGiving}  onClick={()=>{this.props.giveFun(this.props.idx, idx)}}>{item}</button>
+                        return <button className={"givingButton"} hidden={!this.state.isGiving}  onClick={()=>{this.props.giveFun(this.props.idx, idx, this.props.isHand)}}>{item}</button>
                     })
                 }
                 </div>
 
-                <img src={images[this.props.cardId]} width="100%" height="100%" alt={''}/>
+                <img src={images[this.props.cardId]} width="100%" height="100%" alt={''} onClick={() => {this.props.playCardFun(this.props.relativePos)}}/>
             </div>
         );
     }

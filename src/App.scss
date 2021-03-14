@@ -5,7 +5,7 @@ $player_hand_height: ($player_hand_width/7)*1.5;
 $zoom_factor_hand: 2;
 $zoom_factor_player: 2;
 $player_board_width: 100vw;
-$player_board_height: 70vh;
+$player_board_height: 50vh;
 $player_card_height: $player_height*0.9;
 $player_card_width: $player_card_height*0.66;
 
@@ -22,6 +22,7 @@ img{
   //background-color: yellow;
   line-height: $player_height/5;
   z-index:0;
+  border-radius: 1vh;
 }
 
 .PlayBoard{
@@ -154,7 +155,8 @@ img{
   width: 60vw;
   height: 25vh;
   left: 20vw;
-  bottom: $player_hand_height/2;
+  bottom: (($player_board_width/6)*0.5*1.5/2)-7;
+  border-radius: 2vh;
 }
 
 .MyPlayerPlayedCard{
@@ -163,6 +165,11 @@ img{
   width: ($player_board_width/6)*0.5;
   height: ($player_board_width/6)*0.5*1.5;
   transition: transform 0.2s;
+}
+
+.MyPlayerPlayedCard:hover{
+  transform: translateY((-((($player_board_width/6)*0.5*1.5)*($zoom_factor_player - 1))/2)-(($player_board_width/6)*0.5*1.5/2)) scale($zoom_factor_player) ;
+  z-index: 100;
 }
 
 .nextTurn{
@@ -342,3 +349,27 @@ input[type="submit"] {
 
 }
 
+.lastCardPlayed{
+  position: absolute;
+  top: ($player_board_width/6)*0.4*1.5 + 11vw;
+  width: ($player_board_width/6)*0.4;
+  height: ($player_board_width/6)*0.4*1.5;
+  left: ($player_board_width/6)*0.05;
+}
+
+.myLastCardPlayed{
+  position: fixed;
+  right: 15vw;
+  bottom: 4vh;
+  width: ($player_board_width/6)*0.4;
+  height: ($player_board_width/6)*0.4*1.5;
+}
+
+.ChooseTargetMsg{
+  position: fixed;
+  text-align: center;
+  width: 100vw;
+  top: 35vh;
+  height: 30vh;
+  font-size: 30vh;
+}

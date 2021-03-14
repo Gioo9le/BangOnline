@@ -18,6 +18,7 @@ import sceriffo from "./cards/img/roles/01_sceriffo.png";
 import vice from "./cards/img/roles/01_vice.png";
 
 var socket;
+var prom;
 
 class PlayBoard extends React.Component{
     constructor(props){
@@ -81,6 +82,8 @@ class PlayBoard extends React.Component{
             isWaitingRoom:true,
             chooseCowboy:false,
             cowboyOptions:[],
+            choosingTarget:false,
+            playedWaitingTarget:-1,
         };
         this.playACard = this.playACard.bind(this);
         this.drawCard = this.drawCard.bind(this);
@@ -93,19 +96,92 @@ class PlayBoard extends React.Component{
         this.decrementBullets = this.decrementBullets.bind(this);
         this.extractCard = this.extractCard.bind(this);
         this.giveCard = this.giveCard.bind(this);
-        socket = socketIOClient('http://localhost:1234/');
+        this.chooseTarget = this.chooseTarget.bind(this);
+        // https://bang-game-server.herokuapp.com/
+        socket = socketIOClient('localhost:1234');
         socket.emit("checkIsPlaying", this.props.room);
 
     }
+
+    cardsFunction = [
+        function bang(t) {
+            return true;
+        },
+        function barile(t) {
+            return true;
+        },
+        function birra(t) {
+            return false;
+        },
+        function carabine(t) {
+            return false;
+        },
+        function catbalou(t) {
+            return true;
+        },
+        function diligenza(t) {
+            return false;
+        },
+        function dinamite(t) {
+            return false;
+        },
+        function duello(t) {
+            return true;
+        },
+        function emporio(t) {
+            return false;
+        },
+        function gatling(t) {
+            return false;
+        },
+        function indiani(t) {
+            return false;
+        },
+        function mancato(t) {
+            return false;
+        },
+        function mirino(t) {
+            return false;
+        },
+        function mustang(t) {
+            return false;
+        },
+        function panico(t) {
+            return true;
+        },
+        function prigione(t) {
+            return true;
+        },
+        function remington(t) {
+            return false;
+        },
+        function saloon(t) {
+            return false;
+        },
+        function schofield(t) {
+            return false;
+        },
+        function volcanic(t) {
+            return false;
+        },
+        function wellsFargo(t) {
+            return false;
+        },
+        function winchester(t) {
+            return false;
+        }
+    ];
 
     componentDidMount() {
         //document.documentElement.webkitRequestFullScreen();
 
         socket.on('dataChanged', (newRoomCondition, message)=>{
             newRoomCondition.playersData = this.shiftRelativePosition(newRoomCondition.playersData, this.state.myAbsolutePosition);
+            let myTurn = newRoomCondition.currentTurn == this.state.myAbsolutePosition;
             this.setState({
                 roomCondition:newRoomCondition,
-                lastMessage:message
+                lastMessage:message,
+                isMyTurn: myTurn,
             })
         });
 
@@ -146,7 +222,7 @@ class PlayBoard extends React.Component{
             })
         });
         socket.on('pickCowboyCard', (firstCard, secondCard)=>{
-            console.log("Choosing")
+            console.log("Choosing");
             this.setState({
                 cowboyOptions:[firstCard, secondCard],
             })
@@ -167,7 +243,22 @@ class PlayBoard extends React.Component{
     }
 
     playACard(cardIdx){
-        socket.emit('cardPlayed', this.state.myAbsolutePosition, this.state.roomCondition.playersData[0].handCard[cardIdx], cardIdx, this.props.room)
+        let cardPlayedId = this.state.roomCondition.playersData[0].handCard[cardIdx];
+        let roomWithNonPermanent = this.state.roomCondition;
+
+        let waitForTarget = this.cardsFunction[cardPlayedId](this);
+        if (!waitForTarget){
+            socket.emit('cardPlayed', this.state.myAbsolutePosition, cardIdx, -1, this.props.room);
+        }else{
+            let splicedCard = roomWithNonPermanent.playersData[0].handCard.splice(cardIdx,1)[0];
+            roomWithNonPermanent.playersData[0].nonPermanentCard = cardPlayedId;
+            //TODO functions related to every card
+            this.setState({
+                roomCondition: roomWithNonPermanent,
+                choosingTarget:true,
+                playedWaitingTarget: cardIdx,
+            });
+        }
     }
 
     nextTurn(){
@@ -183,8 +274,8 @@ class PlayBoard extends React.Component{
         socket.emit('cardExtracted', this.props.room)
     }
 
-    discardCard(positionCard){
-        socket.emit('cardDiscarded', this.state.myAbsolutePosition, positionCard, this.props.room);
+    discardCard(positionCard, isHand){
+        socket.emit('cardDiscarded', this.state.myAbsolutePosition, positionCard, isHand, this.props.room);
     }
 
     drawDiscarded(){
@@ -223,8 +314,16 @@ class PlayBoard extends React.Component{
         socket.emit('cowBoyChoosen', this.state.myAbsolutePosition, cowboyId, this.props.room);
     }
 
-    giveCard(cardIdx, receiverId){
-        socket.emit("cardGiven", this.state.myAbsolutePosition, cardIdx, receiverId, this.props.room)
+    giveCard(cardIdx, receiverId, isHand){
+        socket.emit("cardGiven", this.state.myAbsolutePosition, cardIdx, receiverId, isHand, this.props.room)
+    }
+
+    chooseTarget(targetIdx){
+        let targetIdxabs = (this.state.myAbsolutePosition+targetIdx+1)%(this.state.roomCondition.numPlayer);
+        socket.emit('cardPlayed', this.state.myAbsolutePosition, this.state.playedWaitingTarget, targetIdxabs, this.props.room);
+        this.setState({
+            choosingTarget:false,
+        })
     }
 
 
@@ -256,23 +355,32 @@ class PlayBoard extends React.Component{
         }else{
             return (
                 <div className="PlayBoard">
+                    <div className={"ChooseTargetMsg"} hidden={!this.state.choosingTarget}> Scegli su chi giocare la carta </div>
                     <PlayerBoard
                         nPlayers={this.state.roomCondition.numPlayer}
                         playerNames={this.state.roomCondition.playersData.map((value)=>{return value.Name}).slice(1,7)}
                         allPlayedCards={this.state.roomCondition.playersData.map((value)=>{return value.playedCard}).slice(1, 7)}
                         allStats={this.state.roomCondition.playersData.map((value)=>{return [value.bullets, value.nHandCard]}).slice(1,7)}
                         cowboysId={this.state.roomCondition.playersData.map((value)=>{return value.Cowboy}).slice(1,7)}
+                        targets={this.state.roomCondition.playersData.map((value)=>{return value.isTarget}).slice(1,7)}
+                        nonPermanent={this.state.roomCondition.playersData.map((value)=>{return value.nonPermanentCard}).slice(1,7)}
+                        selectTargetFun={this.state.choosingTarget?this.chooseTarget:()=>{}}
                     />
                     <MyPlayerPlayedCards
                         myPlayedCards={this.state.roomCondition.playersData.map((value)=>{return value.playedCard})[0]}
                         discardFun={this.discardCard}
                         giveFun={this.giveCard}
                         playerNames={this.state.roomCondition.playersData.map((value)=>{return value.Name})}
+                        myLastPlayed={this.state.roomCondition.playersData.map((value)=>{return value.nonPermanentCard})[0]}
+                        imTarget={this.state.roomCondition.playersData.map((value)=>{return value.isTarget})[0]}
                     />
                     <PlayerHand
                         myHandCards={this.state.roomCondition.playersData.map((value)=>{return value.handCard})[0]}
-                        playCardFun={this.playACard}
-                        //playCardFun={this.state.isMyTurn ? this.playACard : ()=>{}}
+                        discardFun={this.discardCard}
+                        giveFun={this.giveCard}
+                        playerNames={this.state.roomCondition.playersData.map((value)=>{return value.Name})}
+                        //playCardFun={this.playACard}
+                        playCardFun={this.state.isMyTurn || this.state.roomCondition.playersData[0].isTarget ? this.playACard : ()=>{}}
                     />
                     <Discarded
                         discardedList={this.state.roomCondition.discarded}
