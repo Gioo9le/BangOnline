@@ -108,7 +108,7 @@ class PlayBoard extends React.Component{
             return true;
         },
         function barile(t) {
-            return true;
+            return false;
         },
         function birra(t) {
             return false;
