@@ -16,7 +16,7 @@ class MyPlayerPlayedCards extends React.Component{
     render() {
         const images = importAll(require.context('./img/items/', false, /\.(png|jpe?g|svg)$/));
         return (
-            <div className={"MyPlayerPlayedCards"}style={this.props.imTarget?{backgroundColor:"rgba(232, 73, 73, 0.51)"}:{}}>
+            <div className={"MyPlayerPlayedCards"}style={this.props.imTarget?{backgroundColor:"rgba(232, 73, 73, 0.51)"}:{}} hidden={this.props.imDead}>
 
                 {this.props.myPlayedCards.map((item, idx) => {
                     return <MyPlayerPlayedCard
@@ -31,7 +31,7 @@ class MyPlayerPlayedCards extends React.Component{
                     />
                 })}
 
-                <div className={"myLastCardPlayed"}>
+                <div className={"myLastCardPlayed"} hidden={this.props.nonPermanent==-1}>
                     {this.props.myLastPlayed==-1? "lastCardPlayed": <img src={images[this.props.myLastPlayed]}/>}
                 </div>
             </div>

@@ -28,7 +28,7 @@ class Player extends React.Component{
                 <div className={"PlayerName"}>{this.props.name}</div>
                 <Stats bullets={this.props.allStats[0]} distanceFP={this.props.distanceFP} nCards={this.props.allStats[1]}/>
                 <PlayerPlayedCards playedCards={this.props.cardsPlayed==undefined?[]:this.props.cardsPlayed}/>
-                <div className={"lastCardPlayed"}>
+                <div className={"lastCardPlayed"} hidden={this.props.nonPermanent==-1}>
                     {this.props.nonPermanent==-1? "lastCardPlayed": <img src={images[this.props.nonPermanent]}/>}
 
                 </div>

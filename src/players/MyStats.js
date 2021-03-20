@@ -17,7 +17,7 @@ class MyStats extends React.Component{
     }
     render() {
         return (
-            <div className={"MyStats"}>
+            <div className={"MyStats"} hidden={this.props.imDead}>
                 {this.props.myName}
                 {/*<div>Numero Carte in mano</div>*/}
                 {/*<div>Pallottole residue</div>*/}

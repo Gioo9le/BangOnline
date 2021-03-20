@@ -13,7 +13,7 @@ class PlayerHand extends React.Component{
     }
     render() {
         return (
-            <div className={"PlayerHand"}>
+            <div className={"PlayerHand"} hidden={this.props.imDead}>
                 {this.props.myHandCards.map((item, idx) => {
                     return <MyPlayerPlayedCard
                         cardId={item}

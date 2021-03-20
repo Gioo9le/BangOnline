@@ -18,19 +18,19 @@ class Discarded extends React.Component{
         }
     }
 
-    componentDidMount() {
-        fetch('http://192.168.43.137:1234/extractCard')
-            .then(res => res.json())
-            .then(res => this.setState({cardId: res.cardId}))
-            .catch(err => console.log(err))
-    }
+    // componentDidMount() {
+    //     fetch('http://192.168.43.137:1234/extractCard')
+    //         .then(res => res.json())
+    //         .then(res => this.setState({cardId: res.cardId}))
+    //         .catch(err => console.log(err))
+    // }
 
     render() {
         const images = importAll(require.context('./img/items/', false, /\.(png|jpe?g|svg)$/));
         const symbols = [clover, spade, diamond, heart];
         //console.log(images);
         return (
-            <div className={"Discarded"} onMouseOver={() => {this.setState({isClicked:true})}} onMouseOut={() => {this.setState({isClicked:false})}} hidden={this.props.discardedList.length==0}>
+            <div className={"Discarded"} onMouseOver={() => {this.setState({isClicked:true})}} onMouseOut={() => {this.setState({isClicked:false})}} hidden={this.props.discardedList.length==0 || this.props.imDead} >
                 <img className={"DiscardedImage"} src={images[this.props.discardedList[this.props.selectedCard]]} width="100%" height="100%" alt={''} />
                 <div>
                     <button className={"b3"} onClick={this.props.drawFun} hidden={!this.state.isClicked} > Draw </button>

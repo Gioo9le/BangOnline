@@ -365,6 +365,7 @@ class PlayBoard extends React.Component{
                         targets={this.state.roomCondition.playersData.map((value)=>{return value.isTarget}).slice(1,7)}
                         nonPermanent={this.state.roomCondition.playersData.map((value)=>{return value.nonPermanentCard}).slice(1,7)}
                         selectTargetFun={this.state.choosingTarget?this.chooseTarget:()=>{}}
+                        deadPlayers={this.state.roomCondition.playersData.map((value)=>{return value.dead}).slice(1,7)}
                     />
                     <MyPlayerPlayedCards
                         myPlayedCards={this.state.roomCondition.playersData.map((value)=>{return value.playedCard})[0]}
@@ -373,6 +374,7 @@ class PlayBoard extends React.Component{
                         playerNames={this.state.roomCondition.playersData.map((value)=>{return value.Name})}
                         myLastPlayed={this.state.roomCondition.playersData.map((value)=>{return value.nonPermanentCard})[0]}
                         imTarget={this.state.roomCondition.playersData.map((value)=>{return value.isTarget})[0]}
+                        imDead={this.state.roomCondition.playersData[0].dead}
                     />
                     <PlayerHand
                         myHandCards={this.state.roomCondition.playersData.map((value)=>{return value.handCard})[0]}
@@ -381,6 +383,7 @@ class PlayBoard extends React.Component{
                         playerNames={this.state.roomCondition.playersData.map((value)=>{return value.Name})}
                         //playCardFun={this.playACard}
                         playCardFun={this.state.isMyTurn || this.state.roomCondition.playersData[0].isTarget ? this.playACard : ()=>{}}
+                        imDead={this.state.roomCondition.playersData[0].dead}
                     />
                     <Discarded
                         discardedList={this.state.roomCondition.discarded}
@@ -390,17 +393,20 @@ class PlayBoard extends React.Component{
                         drawFun={this.drawDiscarded}
                         ultimoSeme={this.state.roomCondition.semeEstratto}
                         ultimoNumero={this.state.roomCondition.numeroEstratto}
+                        imDead={this.state.roomCondition.playersData[0].dead}
                     />
                     <MyStats
                         myName={this.state.roomCondition.playersData.map((value)=>{return value.Name})[0]}
                         bullets={this.state.roomCondition.playersData.map((value)=>{return value.bullets})[0]}
                         incrementBullets={this.incrementBullets}
                         decrementBullets={this.decrementBullets}
+                        imDead={this.state.roomCondition.playersData[0].dead}
                     />
                     <div className={"Log"}>{this.state.lastMessage}</div>
                     <Deck
                         drawFun={this.drawCard}
                         extractFun={this.extractCard}
+                        imDead={this.state.roomCondition.playersData[0].dead}
                     />
                     {/*<Deck drawFun={this.state.isMyTurn ? this.drawCard : ()=>{}} extractFun={this.extractCard}/>*/}
                     {/*<button className={"drawDoorCard"} onClick={this.state.isMyTurn ? this.drawCard : ()=>{}}> Pesca una carta Porta</button>*/}
@@ -408,8 +414,9 @@ class PlayBoard extends React.Component{
                         className={"nextTurn"}
                         onClick={this.state.isMyTurn ? this.nextTurn : ()=>{}}
                         disabled={!this.state.isMyTurn}
+                        hidden={this.state.roomCondition.playersData[0].dead}
                     > Finisci turno </button>
-                    <div className={'MyCowboy'}>
+                    <div className={'MyCowboy'} hidden={this.state.roomCondition.playersData[0].dead}>
                         <PlayerCard
                             cowboyId={this.state.roomCondition.playersData.map((value)=>{return value.Cowboy})[0]}
                             clickFun={()=>{}}/>

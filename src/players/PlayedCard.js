@@ -13,12 +13,12 @@ class PlayedCard extends React.Component{
         }
     }
 
-    componentDidMount() {
-        fetch('http://192.168.43.137:1234/extractCard')
-            .then(res => res.json())
-            .then(res => this.setState({cardId: res.cardId}))
-            .catch(err => console.log(err))
-    }
+    // componentDidMount() {
+    //     fetch('http://192.168.43.137:1234/extractCard')
+    //         .then(res => res.json())
+    //         .then(res => this.setState({cardId: res.cardId}))
+    //         .catch(err => console.log(err))
+    // }
 
     render() {
         const images = importAll(require.context('./img/items/', false, /\.(png|jpe?g|svg)$/));
