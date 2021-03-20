@@ -98,7 +98,7 @@ class PlayBoard extends React.Component{
         this.giveCard = this.giveCard.bind(this);
         this.chooseTarget = this.chooseTarget.bind(this);
         // https://bang-game-server.herokuapp.com/
-        socket = socketIOClient('localhost:1234');
+        socket = socketIOClient('https://bang-game-server.herokuapp.com/');
         socket.emit("checkIsPlaying", this.props.room);
 
     }
