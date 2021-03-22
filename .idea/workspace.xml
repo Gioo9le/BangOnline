@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f8b30e6-8772-4ae2-8a69-6fef19e2c50a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/screenshoots/GameScreen1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlayBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayBoard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cards/MyPlayerPlayedCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/MyPlayerPlayedCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/MyPlayerPlayedCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/MyPlayerPlayedCards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cards/PlayerHand.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/PlayerHand.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +81,14 @@
         </map>
       </branch-storage>
     </favorite-branches>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -247,6 +256,8 @@
       <workItem from="1615196126427" duration="1265000" />
       <workItem from="1615581128942" duration="40000" />
       <workItem from="1615583535950" duration="7029000" />
+      <workItem from="1615800053976" duration="2112000" />
+      <workItem from="1616064810889" duration="11568000" />
     </task>
     <task id="LOCAL-00001" summary="Aggiunta bozza di schermata di gioco">
       <created>1584908665244</created>
@@ -276,7 +287,28 @@
       <option name="project" value="LOCAL" />
       <updated>1605175507432</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="#bugfix Modificato il barile che non e' una carta da giocare su un avversario">
+      <created>1615744314850</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1615744314850</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Whenever a player dies, all of his character and interaction becomes unavailable and he can only view what other player are doing, and he also disappear for the other players alive + minor graphic and code enhancement">
+      <created>1616241252771</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1616241252771</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Link to heroku">
+      <created>1616241478427</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1616241478427</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -349,7 +381,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Aggiunta bozza di schermata di gioco" />
     <MESSAGE value="Modified Login Page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified Login Page" />
+    <MESSAGE value="#bugfix Modificato il barile che non e' una carta da giocare su un avversario" />
+    <MESSAGE value="Whenever a player dies, all of his character and interaction becomes unavailable and he can only view what other player are doing, and he also disappear for the other players alive + minor graphic and code enhancement" />
+    <MESSAGE value="Link to heroku" />
+    <option name="LAST_COMMIT_MESSAGE" value="Link to heroku" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
